@@ -12,7 +12,22 @@ namespace CustomMath
         public float z;
 
         public float sqrMagnitude { get { throw new NotImplementedException(); } }
-        public Vector3 normalized { get { throw new NotImplementedException(); } }
+
+        public Vector3 normalized { 
+            get 
+            {
+                float magnitude = Mathf.Sqrt(x * x + y * y + z * z);
+                if (magnitude > epsilon)
+                {
+                    float invMagnitude = 1f / magnitude;
+                    return new Vector3(x * invMagnitude, y * invMagnitude, z * invMagnitude);
+                }
+                else
+                {
+                    return Vector3.zero;
+                }
+            } 
+        }
         public float magnitude { get { throw new NotImplementedException(); } }
         #endregion
 
@@ -122,7 +137,7 @@ namespace CustomMath
             throw new NotImplementedException();
         }
         #endregion
-
+      
         #region Functions
         public override string ToString()
         {
@@ -130,7 +145,15 @@ namespace CustomMath
         }
         public static float Angle(Vec3 from, Vec3 to)
         {
-            throw new NotImplementedException();
+            //Normalizamos los vectores
+            from.Normalize();
+            to.Normalize();
+
+            //Calculamos el angulo entre los vectores utilizando la funcion dot product
+            float angle = Mathf.Acos(Mathf.Clamp(Vec3.Dot(from, to), -1f, 1f)) * Mathf.Rad2Deg;
+
+            //Devolvemos el angulo
+            return angle;
         }
         public static Vec3 ClampMagnitude(Vec3 vector, float maxLength)
         {
@@ -142,7 +165,9 @@ namespace CustomMath
         }
         public static Vec3 Cross(Vec3 a, Vec3 b)
         {
-            throw new NotImplementedException();
+            return new Vec3(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
+            //se utiliza la fórmula matemática del producto cruz, que es un vector perpendicular a ambos vectores a y b.
+            //La función simplemente crea un nuevo objeto Vec3 con las componentes resultantes del cálculo del producto cruz utilizando las componentes x, y y z de ambos vectores.
         }
         public static float Distance(Vec3 a, Vec3 b)
         {
@@ -150,7 +175,8 @@ namespace CustomMath
         }
         public static float Dot(Vec3 a, Vec3 b)
         {
-            throw new NotImplementedException();
+            return a.x * b.x + a.y * b.y + a.z * b.z;
+            //Simplemente se multiplica cada componente x, y y z del vector a con su componente correspondiente del vector b y luego los suma.
         }
         public static Vec3 Lerp(Vec3 a, Vec3 b, float t)
         {
@@ -190,7 +216,27 @@ namespace CustomMath
         }
         public void Normalize()
         {
-            throw new NotImplementedException();
+            float magnitude = Mathf.Sqrt(x * x + y * y + z * z);
+            if (magnitude > epsilon)
+            {
+                float invMagnitude = 1f / magnitude;
+                x *= invMagnitude;
+                y *= invMagnitude;
+                z *= invMagnitude;
+            }
+            else
+            {
+                x = 0f;
+                y = 0f;
+                z = 0f;
+            }
+            /*
+            La función comienza calculando la longitud del vector utilizando la fórmula de la raíz cuadrada 
+            de la suma de los cuadrados de las componentes x, y, y z del vector.
+            Luego, verifica si la longitud es mayor que un pequeño valor epsilon para evitar la división por cero.
+            Si la longitud es mayor que epsilon, se calcula el inverso de la longitud y se multiplica cada componente del vector por él para normalizarlo.
+            Si la longitud es menor o igual que epsilon, el vector se establece en cero.
+            */
         }
         #endregion
 
