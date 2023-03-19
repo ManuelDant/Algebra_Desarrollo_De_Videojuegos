@@ -205,23 +205,39 @@ namespace CustomMath
         }
         public static Vec3 Lerp(Vec3 a, Vec3 b, float t)
         {
-            throw new NotImplementedException();
+            Vec3 interpolated = a + (b - a) * t;
+            return interpolated;
+            //toma dos vectores a y b y una proporción t, y devuelve el vector interpolado que se encuentra en algún lugar entre a y b.
         }
         public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t)
         {
-            throw new NotImplementedException();
+            Vec3 interpolated = a * (1 - t) + b * t;
+            return interpolated;
+            //No limita la proporcion de 0 a 1 como lo hace la anterior funcion Lerp, por lo que se resta t para que se consigan resultados fuera del rango 0 a 1.
         }
         public static Vec3 Max(Vec3 a, Vec3 b)
         {
-            throw new NotImplementedException();
+            float x = Mathf.Max(a.x, b.x);
+            float y = Mathf.Max(a.y, b.y);
+            float z = Mathf.Max(a.z, b.z);
+            return new Vec3(x, y, z);
+            //Extraemos las coordenadas x, y y z de los vectores a y b y encontramos el valor máximo para despues crear un nuevo vector.
         }
         public static Vec3 Min(Vec3 a, Vec3 b)
         {
-            throw new NotImplementedException();
+            float x = Mathf.Min(a.x, b.x);
+            float y = Mathf.Min(a.y, b.y);
+            float z = Mathf.Min(a.z, b.z);
+            return new Vec3(x, y, z);
+            //Realizamos el mismo procedimiento que el Max pero haciendo con el minimo.
         }
         public static float SqrMagnitude(Vec3 vector)
         {
-            throw new NotImplementedException();
+            float x = vector.x;
+            float y = vector.y;
+            float z = vector.z;
+            return x * x + y * y + z * z;
+            // Simplemente elevamos al cuadrado y sumamos los resultados para conseguir la magnitud al cuadrado.
         }
         public static Vec3 Project(Vec3 vector, Vec3 onNormal) 
         {
