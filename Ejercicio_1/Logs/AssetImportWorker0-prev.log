@@ -15,7 +15,7 @@ D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52674
+54009
 Successfully changed project path to: D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
 D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 79.92 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 76.35 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -63,92 +63,92 @@ Initialize mono
 Mono path[0] = 'D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56340
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56372
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004465 seconds.
+Registered in 0.002929 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 81.03 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 98.18 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.633 seconds
+- Completed reload, in  0.730 seconds
 Domain Reload Profiling:
-	ReloadAssembly (633ms)
-		BeginReloadAssembly (87ms)
+	ReloadAssembly (730ms)
+		BeginReloadAssembly (100ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (438ms)
-			LoadAssemblies (87ms)
+		EndReloadAssembly (539ms)
+			LoadAssemblies (99ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (103ms)
+			SetupTypeCache (102ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (32ms)
-			SetupLoadedEditorAssemblies (256ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (360ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
+				InitializePlatformSupportModulesInManaged (9ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (81ms)
+				RefreshPlugins (98ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (123ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
+				ProcessInitializeOnLoadAttributes (203ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005919 seconds.
+Registered in 0.006061 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 1.05 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.667 seconds
+- Completed reload, in  0.992 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1668ms)
-		BeginReloadAssembly (125ms)
+	ReloadAssembly (992ms)
+		BeginReloadAssembly (132ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (17ms)
-		EndReloadAssembly (1435ms)
-			LoadAssemblies (109ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (735ms)
+			LoadAssemblies (119ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (262ms)
+			SetupTypeCache (247ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (996ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (323ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (78ms)
-				ProcessInitializeOnLoadAttributes (849ms)
-				ProcessInitializeOnLoadMethodAttributes (58ms)
-				AfterProcessingInitializeOnLoad (4ms)
-				EditorAssembliesLoaded (1ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (211ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.57 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3384 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 27 unused Assets / (113.5 KB). Loaded Objects now: 3841.
+Unloading 27 unused Assets / (113.4 KB). Loaded Objects now: 3841.
 Memory consumption went from 116.3 MB to 116.2 MB.
-Total: 3.535500 ms (FindLiveObjects: 0.361300 ms CreateObjectMapping: 0.223900 ms MarkObjects: 2.839000 ms  DeleteObjects: 0.110000 ms)
+Total: 3.909400 ms (FindLiveObjects: 0.467100 ms CreateObjectMapping: 0.312500 ms MarkObjects: 3.034000 ms  DeleteObjects: 0.094700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,92 +162,59 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1036472.060591 seconds.
+  Time since last request: 1037801.170321 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '679405c07326aca3fb6123c5d59ff59f') in 0.028922 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ed518af3b9360270f039b13832f910b') in 0.025306 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 168.280486 seconds.
+  Time since last request: 292.489109 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd28f415315e3de6ffffdebfbcec84fed') in 0.002038 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a41b7f101b6070cc9512cafe321ba793') in 0.002920 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 74.153500 seconds.
+  Time since last request: 73.932582 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75411c2cd2bab50c444bf674b40c4ae8') in 0.002514 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff1b806916cb0ec7adbd73568c0b0b9c') in 0.002348 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 22.617217 seconds.
+  Time since last request: 1332.742477 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c4d3e94e8b70afbac4b461cdd3c57bd') in 0.001600 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e849c9374b3d2ffbe493b8ade2410268') in 0.001976 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 303.236414 seconds.
+  Time since last request: 82.682712 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a9fa3fba61f069f033d73125aa9ab50') in 0.002697 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd7d09a066bf3978997ad96aa21664d1') in 0.001907 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 127.620411 seconds.
+  Time since last request: 3.582486 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c83b57dad04ba65c70fc187c0a49cb2c') in 0.001642 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f88ed5d30989134edebd437c7cc9d3d') in 0.001519 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 318.452518 seconds.
+  Time since last request: 63.892102 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42fb1d0b683469b9ac127ab7ca0d8ca3') in 0.001424 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f20b912b2d19afa6019b9fd87b2b117') in 0.001673 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 26.038738 seconds.
+  Time since last request: 34.590821 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f506266bf2d5f97cce50a0a8f1c6fe20') in 0.001947 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f7b18cbcb4b34bbf0022d6ed823a12c') in 0.001704 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 61.616650 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d181833a530c1d30fe275b9464bdaf2') in 0.001608 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005612 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.913 seconds
-Domain Reload Profiling:
-	ReloadAssembly (914ms)
-		BeginReloadAssembly (154ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (41ms)
-		EndReloadAssembly (674ms)
-			LoadAssemblies (105ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (238ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (37ms)
-			SetupLoadedEditorAssemblies (285ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (11ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (56ms)
-				ProcessInitializeOnLoadAttributes (189ms)
-				ProcessInitializeOnLoadMethodAttributes (25ms)
-				AfterProcessingInitializeOnLoad (3ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.10 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3379 Unused Serialized files (Serialized files now loaded: 0)
+Registered in 0.005621 seconds.

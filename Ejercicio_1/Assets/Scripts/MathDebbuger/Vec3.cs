@@ -11,7 +11,7 @@ namespace CustomMath
         public float y;
         public float z;
 
-        public float sqrMagnitude { get { throw new NotImplementedException(); } }
+        public float sqrMagnitude { get { return x * x + y * y + z * z; } } //devuelve el cuadrado de la magnitud del vector.
 
         public Vector3 normalized { 
             get 
@@ -28,7 +28,7 @@ namespace CustomMath
                 }
             } 
         }
-        public float magnitude { get { throw new NotImplementedException(); } }
+        public float magnitude { get { return Mathf.Sqrt(x * x + y * y + z * z); } } //Devuelve la magnitud del vector realizando raiz de los cuadrados de x y z del vector.
         #endregion
 
         #region constants
@@ -198,23 +198,27 @@ namespace CustomMath
             //Se utiliza la misma formula euclidania para calcular la distancia entre los vectores. (Similar al teorema de pitagoras pero para tres dimensiones).
 
         }
+
         public static float Dot(Vec3 a, Vec3 b)
         {
             return a.x * b.x + a.y * b.y + a.z * b.z;
             //Simplemente se multiplica cada componente x, y y z del vector a con su componente correspondiente del vector b y luego los suma.
         }
+
         public static Vec3 Lerp(Vec3 a, Vec3 b, float t)
         {
             Vec3 interpolated = a + (b - a) * t;
             return interpolated;
             //toma dos vectores a y b y una proporción t, y devuelve el vector interpolado que se encuentra en algún lugar entre a y b.
         }
+
         public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t)
         {
             Vec3 interpolated = a * (1 - t) + b * t;
             return interpolated;
             //No limita la proporcion de 0 a 1 como lo hace la anterior funcion Lerp, por lo que se resta t para que se consigan resultados fuera del rango 0 a 1.
         }
+
         public static Vec3 Max(Vec3 a, Vec3 b)
         {
             float x = Mathf.Max(a.x, b.x);
@@ -223,6 +227,7 @@ namespace CustomMath
             return new Vec3(x, y, z);
             //Extraemos las coordenadas x, y y z de los vectores a y b y encontramos el valor máximo para despues crear un nuevo vector.
         }
+
         public static Vec3 Min(Vec3 a, Vec3 b)
         {
             float x = Mathf.Min(a.x, b.x);
@@ -231,6 +236,7 @@ namespace CustomMath
             return new Vec3(x, y, z);
             //Realizamos el mismo procedimiento que el Max pero haciendo con el minimo.
         }
+
         public static float SqrMagnitude(Vec3 vector)
         {
             float x = vector.x;
@@ -239,22 +245,58 @@ namespace CustomMath
             return x * x + y * y + z * z;
             // Simplemente elevamos al cuadrado y sumamos los resultados para conseguir la magnitud al cuadrado.
         }
+
         public static Vec3 Project(Vec3 vector, Vec3 onNormal) 
         {
-            throw new NotImplementedException();
+            float sqrMagnitude = SqrMagnitude(onNormal);
+            if (sqrMagnitude < Mathf.Epsilon)
+            {
+                return Vec3.Zero;
+            }
+            else
+            {
+                float dotProduct = Dot(vector, onNormal);
+                float projectionFactor = dotProduct / sqrMagnitude;
+                return onNormal * projectionFactor;
+            }
+            /*
+            Primero, calculamos la magnitud al cuadrado del vector de normalización utilizando la función SqrMagnitude.
+            Si esta magnitud es menor que un valor muy pequeño (epsilon), entonces el vector de normalización es esencialmente cero y devolvemos el vector cero.
+            De lo contrario, calculamos el producto punto de los dos vectores utilizando la función Dot.
+
+            Luego, calculamos el factor de proyección dividiendo el producto punto por la magnitud al cuadrado del vector de normalización. 
+            Finalmente, multiplicamos el vector de normalización por el factor de proyección y devolvemos el resultado como el vector proyectado.
+             */
         }
+
         public static Vec3 Reflect(Vec3 inDirection, Vec3 inNormal) 
         {
-            throw new NotImplementedException();
+            return inDirection - 2f * Dot(inDirection, inNormal) * inNormal;
+            /*
+            Para calcular el vector reflejado, primero calculamos el producto punto de inDirection y inNormal utilizando la función Dot.
+            Luego, multiplicamos el resultado por 2 y el vector normalizado inNormal. Esto nos da la parte del vector que se reflejará. 
+            Finalmente, restamos esta parte del vector de la dirección de entrada inDirection para obtener el vector reflejado.
+
+            El resultado es un vector que apunta en la dirección opuesta a la dirección de entrada inDirection, reflejado por la superficie definida por el vector normalizado inNormal.
+            */
         }
+
         public void Set(float newX, float newY, float newZ)
         {
-            throw new NotImplementedException();
+            x = newX;
+            y = newY;
+            z = newZ;
+            //Setea las posiciones de un vector de tres dimensiones.
         }
+
         public void Scale(Vec3 scale)
         {
-            throw new NotImplementedException();
+            x *= scale.x;
+            y *= scale.y;
+            z *= scale.z;
+            //Setea la escala de un vector en todas las dimensiones.
         }
+
         public void Normalize()
         {
             float magnitude = Mathf.Sqrt(x * x + y * y + z * z);
