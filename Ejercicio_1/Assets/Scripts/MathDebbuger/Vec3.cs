@@ -157,11 +157,33 @@ namespace CustomMath
         }
         public static Vec3 ClampMagnitude(Vec3 vector, float maxLength)
         {
-            throw new NotImplementedException();
+           
+            float sqrMagnitude = vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
+            if (sqrMagnitude > maxLength * maxLength)
+            {
+                float magnitude = Mathf.Sqrt(sqrMagnitude);
+                float normalizedX = vector.x / magnitude;
+                float normalizedY = vector.y / magnitude;
+                float normalizedZ = vector.z / magnitude;
+                return new Vec3(normalizedX * maxLength, normalizedY * maxLength, normalizedZ * maxLength);
+            }
+            return vector;
+            /*
+            calculando el cuadrado de la magnitud del vector dado. Luego, si el cuadrado de la magnitud es mayor que el cuadrado del valor máximo permitido,
+            se normaliza el vector y se multiplica cada componente por el valor máximo para obtener un vector con la magnitud limitada. 
+            Si la magnitud del vector dado es menor o igual que el valor máximo permitido, simplemente devuelve el vector sin cambios.
+            */
         }
         public static float Magnitude(Vec3 vector)
         {
-            throw new NotImplementedException();
+            float x = vector.x;
+            float y = vector.y;
+            float z = vector.z;
+            float magnitude = (float)MathF.Sqrt(x * x + y * y + z * z);
+            return magnitude;
+            //calcula la magnitud del vector utilizando la fórmula de la distancia euclidiana en tres dimensiones.
+            //la formula euclidiana se utiliza para calcular la distancia entre dos puntos que se puede realizar en un espacio tridimensional
+            //su formula es la siguiente: d = sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2). d = distancia | x1 y x2= coordenadas del primer y segundo punto.
         }
         public static Vec3 Cross(Vec3 a, Vec3 b)
         {
@@ -171,7 +193,10 @@ namespace CustomMath
         }
         public static float Distance(Vec3 a, Vec3 b)
         {
-            throw new NotImplementedException();
+            float distance = Mathf.Sqrt(Mathf.Pow(a.x - b.x, 2) + Mathf.Pow(a.y - b.y, 2) + Mathf.Pow(a.z - b.z, 2));
+            return distance;
+            //Se utiliza la misma formula euclidania para calcular la distancia entre los vectores. (Similar al teorema de pitagoras pero para tres dimensiones).
+
         }
         public static float Dot(Vec3 a, Vec3 b)
         {
