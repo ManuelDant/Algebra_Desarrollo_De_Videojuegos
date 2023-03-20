@@ -15,7 +15,7 @@ D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54009
+50440
 Successfully changed project path to: D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
 D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/Escritorio/Algebra_Desarrollo_De_Videojuegos/Ejercicio_1
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 76.35 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 80.47 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -63,92 +63,92 @@ Initialize mono
 Mono path[0] = 'D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56372
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56532
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Archivos de Programa (x86)/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002929 seconds.
+Registered in 0.003116 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 98.18 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 79.37 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.730 seconds
+- Completed reload, in  0.663 seconds
 Domain Reload Profiling:
-	ReloadAssembly (730ms)
-		BeginReloadAssembly (100ms)
+	ReloadAssembly (664ms)
+		BeginReloadAssembly (97ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (539ms)
-			LoadAssemblies (99ms)
+		EndReloadAssembly (468ms)
+			LoadAssemblies (97ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (102ms)
+			SetupTypeCache (104ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (31ms)
-			SetupLoadedEditorAssemblies (360ms)
+			RebuildScriptCaches (30ms)
+			SetupLoadedEditorAssemblies (263ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
+				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (98ms)
+				RefreshPlugins (79ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (203ms)
-				ProcessInitializeOnLoadMethodAttributes (49ms)
+				ProcessInitializeOnLoadAttributes (115ms)
+				ProcessInitializeOnLoadMethodAttributes (59ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006061 seconds.
+Registered in 0.006579 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.49 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.992 seconds
+- Completed reload, in  1.025 seconds
 Domain Reload Profiling:
-	ReloadAssembly (992ms)
-		BeginReloadAssembly (132ms)
+	ReloadAssembly (1026ms)
+		BeginReloadAssembly (141ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (735ms)
-			LoadAssemblies (119ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (756ms)
+			LoadAssemblies (126ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (247ms)
+			SetupTypeCache (250ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (46ms)
-			SetupLoadedEditorAssemblies (323ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (335ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (77ms)
-				ProcessInitializeOnLoadAttributes (211ms)
-				ProcessInitializeOnLoadMethodAttributes (26ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (220ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 1.02 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3384 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 27 unused Assets / (113.4 KB). Loaded Objects now: 3841.
 Memory consumption went from 116.3 MB to 116.2 MB.
-Total: 3.909400 ms (FindLiveObjects: 0.467100 ms CreateObjectMapping: 0.312500 ms MarkObjects: 3.034000 ms  DeleteObjects: 0.094700 ms)
+Total: 3.813800 ms (FindLiveObjects: 0.349800 ms CreateObjectMapping: 0.332100 ms MarkObjects: 3.005700 ms  DeleteObjects: 0.125000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -162,59 +162,220 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1037801.170321 seconds.
+  Time since last request: 1039957.976131 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ed518af3b9360270f039b13832f910b') in 0.025306 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18015539d51eeb1cd40b7ac90a9813df') in 0.025383 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 292.489109 seconds.
+  Time since last request: 100.396293 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a41b7f101b6070cc9512cafe321ba793') in 0.002920 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12559b90a95aa5b6bd12aa39683ef883') in 0.001910 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 73.932582 seconds.
+  Time since last request: 130.253003 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff1b806916cb0ec7adbd73568c0b0b9c') in 0.002348 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e61d750f39c9c657769a6d2b2d18d97d') in 0.001504 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 1332.742477 seconds.
+  Time since last request: 53.748386 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e849c9374b3d2ffbe493b8ade2410268') in 0.001976 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca41e0db1a0edce0ddfcc2567acc74f8') in 0.001589 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 82.682712 seconds.
+  Time since last request: 13.474872 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd7d09a066bf3978997ad96aa21664d1') in 0.001907 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33b83ff901d7455b637963ddf4ad660a') in 0.003626 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.582486 seconds.
+  Time since last request: 2.354111 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f88ed5d30989134edebd437c7cc9d3d') in 0.001519 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a7215418a8d6009ea4763a092418d0a') in 0.001729 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 63.892102 seconds.
+  Time since last request: 2.956394 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f20b912b2d19afa6019b9fd87b2b117') in 0.001673 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3863ddf05ddb9bde535010310fe6e167') in 0.002139 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 34.590821 seconds.
+  Time since last request: 1.178417 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f7b18cbcb4b34bbf0022d6ed823a12c') in 0.001704 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5dcc2f6d868eff9986449e75608aee7') in 0.005465 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 61.616650 seconds.
+  Time since last request: 2.128252 seconds.
   path: Assets/Scripts/MathDebbuger/Vec3.cs
   artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d181833a530c1d30fe275b9464bdaf2') in 0.001608 seconds 
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fba74388a436c96f775caa511c01a04') in 0.004666 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.624342 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '711b8c08667efcc6ec66fb472e7c8314') in 0.001551 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.844092 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d4c64c57caa032946fda115d2375a6b') in 0.001536 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.694876 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dd57d9f9ca27aef2aa3a9a83e349a23') in 0.001850 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.150163 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a903cda7d89b2a259b7041b3030d4f8') in 0.001833 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.451032 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '297ed62338c51090044489a2fc50bf33') in 0.001471 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.159735 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd6c887b78b886000a776eb1537473d5') in 0.001884 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.829991 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82e141e7cd5cdb74ad061289c299bb31') in 0.001724 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.604192 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f348b6e833b9799d5024c48026097c1e') in 0.002279 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.569869 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9013bf8c67540a51495ab4a625d17276') in 0.001802 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 45.549425 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30e216bcdd6c810277054f2fa77a41f2') in 0.001834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 115.382418 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e42ec4ba03576343545a3efa89d3bf64') in 0.002162 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.143845 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e53a8af47ce05a0282ed98be80eafec') in 0.001699 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 105.549191 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a497284b5b4931393f89ed5706876d3f') in 0.002334 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.061999 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0882aa510f9f98e4831124f28d4c4532') in 0.002111 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 36.910772 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '876c228354a875aa62f66fd0141b8233') in 0.003211 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.816418 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '157770b3e6c780930340d4889f650a72') in 0.002196 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 62.611019 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37d9a5a929152b0e49ff9cbc977710e1') in 0.001391 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.310386 seconds.
+  path: Assets/Scripts/MathDebbuger/Vec3.cs
+  artifactKey: Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/MathDebbuger/Vec3.cs using Guid(1e38760088d3ad64f8af12f0f115bde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8c9983e2cf33fb7103c34e6852c989b') in 0.001896 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005621 seconds.
+Registered in 0.006747 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Escritorio\Algebra_Desarrollo_De_Videojuegos\Ejercicio_1\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.136 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1137ms)
+		BeginReloadAssembly (177ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (751ms)
+			LoadAssemblies (148ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (296ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (283ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (58ms)
+				ProcessInitializeOnLoadAttributes (185ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.47 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3379 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (79.9 KB). Loaded Objects now: 3844.
+Memory consumption went from 116.2 MB to 116.2 MB.
+Total: 2.687100 ms (FindLiveObjects: 0.301600 ms CreateObjectMapping: 0.183200 ms MarkObjects: 2.116800 ms  DeleteObjects: 0.084800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

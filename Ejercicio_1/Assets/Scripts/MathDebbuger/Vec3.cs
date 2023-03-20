@@ -102,39 +102,47 @@ namespace CustomMath
         public static Vec3 operator +(Vec3 leftV3, Vec3 rightV3)
         {
             return new Vec3(leftV3.x + rightV3.x, leftV3.y + rightV3.y, leftV3.z + rightV3.z);
+            //Devuelve un nuevo vector cuyas componentes son la diferencia de las componentes correspondientes de los dos vectores que se están sumando. 
         }
 
         public static Vec3 operator -(Vec3 leftV3, Vec3 rightV3)
         {
-            throw new NotImplementedException();
+            return new Vec3(leftV3.x - rightV3.x, leftV3.y - rightV3.y, leftV3.z - rightV3.z);
+            //El mismo procedimiento que el anterior operador pero en este caso se restan en ves de sumarse.
         }
 
         public static Vec3 operator -(Vec3 v3)
         {
-            throw new NotImplementedException();
+            return new Vec3(-v3.x, -v3.y, -v3.z);
+            //Devuelve un nuevo vector cuyas componentes son iguales a las del vector original multiplicadas por -1.
         }
 
         public static Vec3 operator *(Vec3 v3, float scalar)
         {
-            throw new NotImplementedException();
+            return new Vec3(v3.x * scalar, v3.y * scalar, v3.z * scalar);
+            //Devuelve un nuevo vector cuyas componentes son iguales a las del vector original multiplicadas por el escalar dado.
         }
         public static Vec3 operator *(float scalar, Vec3 v3)
         {
-            throw new NotImplementedException();
+            return new Vec3(v3.x * scalar, v3.y * scalar, v3.z * scalar);
+            //Es el mismo procedimiento que el anterior operador ya que la multiplicacion no altera el producto.
         }
         public static Vec3 operator /(Vec3 v3, float scalar)
         {
-            throw new NotImplementedException();
+            return new Vec3(v3.x / scalar, v3.y / scalar, v3.z / scalar);
+            //Divide cada componente del vector por el valor de la escalada y crea un nuevo vector con los resultados.
         }
 
         public static implicit operator Vector3(Vec3 v3)
         {
             return new Vector3(v3.x, v3.y, v3.z);
+            //Define una conversión implícita de un objeto Vec3 a un objeto Vector3.
         }
 
         public static implicit operator Vector2(Vec3 v2)
         {
-            throw new NotImplementedException();
+            return new Vector2(v2.x, v2.y);
+            //Se realiza lo mismo que el anterior operador pero para un Vector de 2 dimensiones.
         }
         #endregion
       
