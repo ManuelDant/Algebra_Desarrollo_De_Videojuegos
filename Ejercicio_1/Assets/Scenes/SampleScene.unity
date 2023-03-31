@@ -330,10 +330,10 @@ MonoBehaviour:
   m_Script: {fileID: 642327099, guid: 766dc89baea75b44fa40ffda41d4dd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ejercicio: 0
-  vectorColor: {r: 0.40738347, g: 0.8679245, b: 0.1342826, a: 1}
-  a: {x: 2.97, y: 2.79, z: 3.17}
-  b: {x: 3.16, y: 1.87, z: 1.86}
+  ejercicio: 1
+  vectorColor: {r: 1, g: 0.94748086, b: 0, a: 1}
+  a: {x: 1, y: 1, z: 1}
+  b: {x: 3, y: 3, z: 3}
 --- !u!4 &969775359
 Transform:
   m_ObjectHideFlags: 0
@@ -348,6 +348,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1666181059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666181061}
+  - component: {fileID: 1666181060}
+  m_Layer: 0
+  m_Name: Ejercicio2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1666181060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666181059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7afa8eb7729354195b1505d3079d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vectorA: {x: 1, y: 1, z: 1}
+  vectorB: {x: 3, y: 3, z: 3}
+  Ejercicio: 2
+--- !u!4 &1666181061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666181059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.26525164, y: 0.5753741, z: -2.2476897}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1830582422
 GameObject:
@@ -376,7 +423,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830582422}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf7bdb92ebeca13429a5a3777a0c5c2d, type: 3}
   m_Name: 
