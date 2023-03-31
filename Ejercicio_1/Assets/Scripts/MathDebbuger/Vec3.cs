@@ -138,6 +138,11 @@ namespace CustomMath
             return new Vector3(v3.x, v3.y, v3.z);
             //Define una conversión implícita de un objeto Vec3 a un objeto Vector3.
         }
+        public static implicit operator Vec3(Vector3 v3)
+        {
+            return new Vec3(v3.x, v3.y, v3.z);
+            //Define una conversión implícita de un objeto Vector3 a un objeto Vec3.
+        }
 
         public static implicit operator Vector2(Vec3 v2)
         {

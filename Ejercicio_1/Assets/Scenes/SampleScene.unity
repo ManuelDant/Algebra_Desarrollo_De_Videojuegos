@@ -330,9 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 642327099, guid: 766dc89baea75b44fa40ffda41d4dd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ejercicio: 1
+  ejercicio: 2
   vectorColor: {r: 1, g: 0.94748086, b: 0, a: 1}
-  a: {x: 1, y: 1, z: 1}
+  a: {x: 2, y: 2, z: 2}
   b: {x: 3, y: 3, z: 3}
 --- !u!4 &969775359
 Transform:
@@ -378,9 +378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7afa8eb7729354195b1505d3079d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vectorA: {x: 1, y: 1, z: 1}
-  vectorB: {x: 3, y: 3, z: 3}
-  Ejercicio: 2
+  vectorA: {x: 2, y: 2, z: 2}
+  vectorB: {x: 2, y: 2, z: 2}
+  Ejercicio: 3
 --- !u!4 &1666181061
 Transform:
   m_ObjectHideFlags: 0
