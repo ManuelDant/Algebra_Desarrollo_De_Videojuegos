@@ -9,9 +9,16 @@ public class Ejercicio2 : MonoBehaviour
     private Vector3 vectorA;
     [SerializeField]
     private Vector3 vectorB;
-    
+
     [SerializeField]
     private float Ejercicio = 1;
+
+    float tiempoInicio = 0;
+
+    private void Start()
+    {
+        
+    }
 
     private void Update()
     {
@@ -58,6 +65,24 @@ public class Ejercicio2 : MonoBehaviour
 
                 break;
             case 5:
+                
+                tiempoInicio += 0.99f * Time.deltaTime;
+                Vec3 vectorCinco;
+                float interpolacion = 0;
+
+                interpolacion = Mathf.PingPong(tiempoInicio, 1.0f);
+
+                if (interpolacion >= 0.99)
+                {
+                   tiempoInicio = 0;
+                }
+
+                vectorCinco = Vec3.Lerp(vectorA, vectorB, interpolacion);
+
+                Debug.DrawLine(Vector3.zero, vectorA, Color.red);
+                Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
+                Debug.DrawLine(Vector3.zero, vectorCinco, Color.green);
+
                 break;
             default:
                 break;
