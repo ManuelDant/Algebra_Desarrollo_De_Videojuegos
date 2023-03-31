@@ -15,17 +15,12 @@ public class Ejercicio2 : MonoBehaviour
 
     float tiempoInicio = 0;
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
-        Uno();
+        Ejercicios();
     }
 
-    private void Uno()
+    private void Ejercicios()
     {
         switch (Ejercicio)
         {
@@ -83,6 +78,30 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, vectorCinco, Color.green);
 
+                break;
+            case 6:
+                Vec3 maxVector = new Vec3();
+                maxVector = Vec3.Max(vectorA, vectorB);             
+
+                Debug.DrawLine(Vector3.zero, vectorA, Color.red);
+                Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
+                Debug.DrawLine(Vector3.zero, maxVector, Color.green);
+
+                break;
+            case 7:
+                Vec3 vectorReflect = Vec3.Project(vectorA, vectorB);
+
+                Debug.DrawLine(Vector3.zero, vectorA, Color.red);
+                Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
+                Debug.DrawLine(Vector3.zero, vectorReflect, Color.green);
+                Debug.Log(vectorReflect);
+                
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
                 break;
             default:
                 break;
