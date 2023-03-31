@@ -47,6 +47,15 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorMultiplicacion, Color.green);
                 break;
             case 4:
+                Vec3 vectorRaro = new Vec3(
+                    vectorA.z * vectorB.y - vectorA.y,
+                    vectorA.z * -vectorB.x + vectorA.x,
+                    vectorA.x * -vectorB.y + vectorA.y * vectorB.x);
+
+                Debug.DrawLine(Vector3.zero, vectorA, Color.red);
+                Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
+                Debug.DrawLine(Vector3.zero, vectorRaro, Color.green);
+
                 break;
             case 5:
                 break;
