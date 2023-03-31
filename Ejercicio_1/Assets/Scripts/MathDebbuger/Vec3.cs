@@ -153,14 +153,17 @@ namespace CustomMath
         }
         public static float Angle(Vec3 from, Vec3 to)
         {
-            //Normalizamos los vectores
+            //Normaliza ambos vectores para asegurarse de que tengan longitud 1, lo que los convierte en vectores unitarios.
             from.Normalize();
             to.Normalize();
 
             //Calculamos el angulo entre los vectores utilizando la funcion dot product
             float angle = Mathf.Acos(Mathf.Clamp(Vec3.Dot(from, to), -1f, 1f)) * Mathf.Rad2Deg;
 
-            //Devolvemos el angulo
+            //Luego, utiliza la función de producto punto para calcular el coseno del ángulo entre los dos vectores normalizados.
+            //El valor del coseno se restringe dentro del rango [-1, 1] utilizando la función Mathf.Clamp.
+            //Luego, se utiliza la función Mathf.Acos para calcular el ángulo en radianes, que se convierte a grados multiplicando por Mathf.Rad2Deg.
+            //Finalmente, el ángulo en grados se devuelve como un valor de punto flotante.
             return angle;
         }
         public static Vec3 ClampMagnitude(Vec3 vector, float maxLength)

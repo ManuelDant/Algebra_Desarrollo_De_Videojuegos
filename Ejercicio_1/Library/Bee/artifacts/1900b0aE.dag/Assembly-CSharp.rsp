@@ -355,6 +355,7 @@
 "Assets/Scripts/MathDebbuger/Debuggers/Vector3Debugger.cs"
 "Assets/Scripts/MathDebbuger/Internals/CameraDebugger.cs"
 "Assets/Scripts/MathDebbuger/Tests/Tester.cs"
+"Assets/Scripts/MathDebbuger/TestVec3.cs"
 "Assets/Scripts/MathDebbuger/Vec3.cs"
 -langversion:9.0
 
