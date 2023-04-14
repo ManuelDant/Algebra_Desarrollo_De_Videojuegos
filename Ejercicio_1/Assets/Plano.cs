@@ -70,6 +70,43 @@ namespace CustomMath
             //Se agrega este valor a _distance para actualizar la posición del plano.
         }
 
+        public static MiPlano Translate(MiPlano plane, Vec3 translation)
+        {
+            return new MiPlano(plane._normal, plane._distance += Vec3.Dot(plane._normal, translation));
+            //se calcula sumando el producto punto entre la normal del plano original y el vector de traslación al valor de distancia original del plano.
+            //Esto se hace para actualizar la posición del plano en la dirección del vector de traslación.
+
+        }
+
+        public Vec3 ClosestPointOnPlane(Vec3 point)
+        {
+            float distance = Vec3.Dot(_normal, point) + _distance;
+            return point - _normal * distance;
+            //Para encontrar el punto más cercano, primero se calcula la distancia del punto al plano utilizando la fórmula de la ecuación del plano.
+            //Se proyecta el vector desde el punto al plano, lo cual equivale a restar el producto punto entre la normal del plano y el punto a la normal multiplicado por la distancia del plano al origen.
+            //El punto proyectado se encuentra restando la normal del plano multiplicada por la distancia del punto point, dando asi el punto mas cercano.
+
+        }
+
+        public float GetDistanceToPoint(Vec3 point)
+        {
+            return Vec3.Dot(_normal, point) + _distance;
+            //La fórmula utilizada para encontrar esta distancia se basa en la ecuación general de un plano, que es: Ax + By + Cz + D = 0
+            //Para encontrar la distancia entre un punto P y el plano, podemos sustituir las coordenadas del punto en la ecuación del plano: A* Px +B * Py + C * Pz + D = d
+            //Donde d es la distancia desde el punto P al plano. Si el punto P está por encima del plano, d será un valor positivo y si está por debajo del plano será negativo.
+
+            //En esta función, se utiliza el producto punto entre el vector normal del plano y el punto para calcular la distancia.
+            //Luego se agrega la distancia desde el plano al origen para obtener la distancia total desde el punto al plano.
+        }
+
+        public bool GetSide(Vec3 point)
+        {
+            //Utiliza la misma formula que GetDistanceToPoint()
+            return Vec3.Dot(_normal, point) + _distance > 0f;
+            //Para determinar en qué lado del plano se encuentra un punto, podemos evaluar la ecuación del plano usando las coordenadas del punto.
+            //Si el resultado es mayor que cero, entonces el punto está en el lado del plano en el que apunta la normal; de lo contrario, está en el lado opuesto.
+            //Si es mayor que 0 devuelve true y si es menor o igual a 0 se devuelve false que significa que el punto esta al lado opuesto donde apunta la normal.
+        }
     }
 }
 
