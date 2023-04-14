@@ -107,6 +107,19 @@ namespace CustomMath
             //Si el resultado es mayor que cero, entonces el punto está en el lado del plano en el que apunta la normal; de lo contrario, está en el lado opuesto.
             //Si es mayor que 0 devuelve true y si es menor o igual a 0 se devuelve false que significa que el punto esta al lado opuesto donde apunta la normal.
         }
+
+        public bool SameSide(Vec3 inPt0, Vec3 inPt1)
+        {
+            //comprueba si dos puntos dados se encuentran en el mismo lado del plano.
+            float distanceToPoint = GetDistanceToPoint(inPt0);
+            float distanceToPoint2 = GetDistanceToPoint(inPt1);
+            return (distanceToPoint > 0f && distanceToPoint2 > 0f) || (distanceToPoint <= 0f && distanceToPoint2 <= 0f);
+            //primero calcula la distancia de cada punto al plano mediante la función GetDistanceToPoint.
+            //Si ambas distancias son positivas o negativas entonces los puntos se encuentran en el mismo lado del plano.
+            //Por otro lado, si una distancia es positiva y la otra negativa, los puntos están en lados opuestos del plano.
+
+            //Por lo tanto, la función devuelve true si los puntos están en el mismo lado del plano y false en caso contrario.
+        }
     }
 }
 
