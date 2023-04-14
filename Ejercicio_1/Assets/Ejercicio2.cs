@@ -14,6 +14,7 @@ public class Ejercicio2 : MonoBehaviour
     private float Ejercicio = 1;
 
     float tiempoInicio = 0;
+    float interpolationValue = 1;
 
     private void Update()
     {
@@ -49,14 +50,11 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorMultiplicacion, Color.green);
                 break;
             case 4:
-                Vec3 vectorRaro = new Vec3(
-                    vectorA.z * vectorB.y - vectorA.y,
-                    vectorA.z * -vectorB.x + vectorA.x,
-                    vectorA.x * -vectorB.y + vectorA.y * vectorB.x);
+                Vec3 vectorCross = Vec3.Cross(vectorA, vectorB);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
-                Debug.DrawLine(Vector3.zero, vectorRaro, Color.green);
+                Debug.DrawLine(Vector3.zero, vectorCross, Color.green);
 
                 break;
             case 5:
@@ -89,19 +87,43 @@ public class Ejercicio2 : MonoBehaviour
 
                 break;
             case 7:
-                Vec3 vectorReflect = Vec3.Project(vectorA, vectorB);
+                Vec3 vectorProyect = Vec3.Project(vectorA, vectorB);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
-                Debug.DrawLine(Vector3.zero, vectorReflect, Color.green);
-                Debug.Log(vectorReflect);
+                Debug.DrawLine(Vector3.zero, vectorProyect, Color.green);
                 
                 break;
             case 8:
+                float distance = Vector3.Distance(vectorA, vectorB);
+                float distanceToA = distance * 0.5f;
+                Vector3 newVector = Vector3.Lerp(vectorA, vectorB, distanceToA / distance);
+
+                Debug.DrawLine(Vector3.zero, vectorA, Color.red);
+                Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
+                Debug.DrawLine(Vector3.zero, newVector, Color.green);
+                Debug.Log(newVector);
+                //Funcion Lerp con algo mas seguramente.
+                //posible reflect invertido/inverso.
+
                 break;
             case 9:
+                //Vec3 vectorReflect = Vector3.Reflect(-vectorA, vectorB * Vec3.epsilon);
+
+                Debug.DrawLine(Vector3.zero, vectorA, Color.red);
+                Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
+                //|Debug.DrawLine(Vector3.zero, vectorReflect, Color.green);
+                
+
                 break;
             case 10:
+                Vector3 newPosition = Vector3.Lerp(vectorA* 10, (vectorB + new Vector3(-10,-10,-10)), interpolationValue);
+                interpolationValue -= Time.deltaTime / 10f; // Cambia la velocidad de aumento ajustando el divisor
+
+                Debug.DrawLine(Vector3.zero, vectorA, Color.red);
+                Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
+                Debug.DrawLine(Vector3.zero, newPosition, Color.green);
+                Debug.Log(newPosition);
                 break;
             default:
                 break;

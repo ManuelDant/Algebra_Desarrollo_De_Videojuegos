@@ -337,6 +337,11 @@ namespace CustomMath
             Si la longitud es menor o igual que epsilon, el vector se establece en cero.
             */
         }
+
+        public static Vec3 Normalize(Vec3 inNormal)
+        {
+            return inNormal.normalized;
+        }
         #endregion
 
         #region Internals
