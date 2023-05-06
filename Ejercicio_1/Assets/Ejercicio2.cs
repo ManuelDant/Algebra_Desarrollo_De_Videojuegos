@@ -116,8 +116,13 @@ public class Ejercicio2 : MonoBehaviour
 
                 break;
             case 10:
-                Vector3 newPosition = Vector3.Lerp(vectorA* 10, (vectorB + new Vector3(-10,-10,-10)), interpolationValue);
-                interpolationValue -= Time.deltaTime / 10f; // Cambia la velocidad de aumento ajustando el divisor
+                Vector3 newPosition = Vector3.LerpUnclamped(vectorA, vectorB, interpolationValue);
+                interpolationValue -= Time.deltaTime * 1;
+
+                if (interpolationValue < -9f)
+                {
+                    interpolationValue = 1f;
+                }
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
