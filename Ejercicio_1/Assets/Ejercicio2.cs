@@ -103,17 +103,16 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, newVector, Color.green);
                 Debug.Log(newVector);
-                //Funcion Lerp con algo mas seguramente.
-                //posible reflect invertido/inverso.
 
                 break;
             case 9:
-                //Vec3 vectorReflect = Vector3.Reflect(-vectorA, vectorB * Vec3.epsilon);
+                
+                Vec3 vectorReflect = Vector3.Reflect(vectorA, vectorB.normalized);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
-                //|Debug.DrawLine(Vector3.zero, vectorReflect, Color.green);
-                
+                Debug.DrawLine(Vector3.zero, vectorReflect, Color.green);
+                Debug.Log(vectorReflect);      
 
                 break;
             case 10:
