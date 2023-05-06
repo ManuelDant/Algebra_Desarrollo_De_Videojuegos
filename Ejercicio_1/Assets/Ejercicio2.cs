@@ -30,7 +30,7 @@ public class Ejercicio2 : MonoBehaviour
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
-                Debug.DrawLine(Vector3.zero, vectorSuma, Color.green);               
+                Debug.DrawLine(Vector3.zero, vectorSuma, Color.green);
                 break;
             case 2:
                 Vec3 vectorResta = vectorB - vectorA;
@@ -58,7 +58,7 @@ public class Ejercicio2 : MonoBehaviour
 
                 break;
             case 5:
-                
+
                 tiempoInicio += 0.99f * Time.deltaTime;
                 Vec3 vectorCinco;
                 float interpolacion = 0;
@@ -67,7 +67,7 @@ public class Ejercicio2 : MonoBehaviour
 
                 if (interpolacion >= 0.99)
                 {
-                   tiempoInicio = 0;
+                    tiempoInicio = 0;
                 }
 
                 vectorCinco = Vec3.Lerp(vectorA, vectorB, interpolacion);
@@ -79,7 +79,7 @@ public class Ejercicio2 : MonoBehaviour
                 break;
             case 6:
                 Vec3 maxVector = new Vec3();
-                maxVector = Vec3.Max(vectorA, vectorB);             
+                maxVector = Vec3.Max(vectorA, vectorB);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
@@ -92,22 +92,23 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, vectorProyect, Color.green);
-                
+
                 break;
             case 8:
-                float distance = Vector3.Distance(vectorA, vectorB);
-                float distanceToA = distance * 0.5f;
-                Vector3 newVector = Vector3.Lerp(vectorA, vectorB, distanceToA / distance);
+                Vec3 sumaNormalizada = (vectorA + vectorB).normalized;
+                float distance = Vec3.Distance(vectorA, vectorB);
+
+                Vec3 vectorC = sumaNormalizada * distance;
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
-                Debug.DrawLine(Vector3.zero, newVector, Color.green);
-                Debug.Log(newVector);
+                Debug.DrawLine(Vector3.zero, vectorC, Color.green);
+                Debug.Log(vectorC);
 
                 break;
             case 9:
                 
-                Vec3 vectorReflect = Vector3.Reflect(vectorA, vectorB.normalized);
+                Vec3 vectorReflect = Vec3.Reflect(vectorA, vectorB.normalized);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
@@ -116,7 +117,7 @@ public class Ejercicio2 : MonoBehaviour
 
                 break;
             case 10:
-                Vector3 newPosition = Vector3.LerpUnclamped(vectorA, vectorB, interpolationValue);
+                Vec3 newPosition = Vec3.LerpUnclamped(vectorA, vectorB, interpolationValue);
                 interpolationValue -= Time.deltaTime * 1;
 
                 if (interpolationValue < -9f)
