@@ -293,7 +293,8 @@ namespace CustomMath
             Luego, multiplicamos el resultado por 2 y el vector normalizado inNormal. Esto nos da la parte del vector que se reflejará. 
             Finalmente, restamos esta parte del vector de la dirección de entrada inDirection para obtener el vector reflejado.
 
-            El resultado es un vector que apunta en la dirección opuesta a la dirección de entrada inDirection, reflejado por la superficie definida por el vector normalizado inNormal.
+            El resultado es un vector que apunta en la dirección opuesta a la dirección de entrada inDirection, reflejado por la superficie definida por el
+            vector normalizado inNormal.
             */
         }
 

@@ -10,8 +10,22 @@ public class Ejercicio2 : MonoBehaviour
     [SerializeField]
     private Vector3 vectorB;
 
+
+    private enum Ejercicio {
+        Uno,
+        Dos,
+        Tres,
+        Cuatro,
+        Cinco,
+        Seis,
+        Siete,
+        Ocho,
+        Nueve,
+        Diez
+    }
+
     [SerializeField]
-    private float Ejercicio = 1;
+    private Ejercicio ejercicio;
 
     float tiempoInicio = 0;
     float interpolationValue = 1;
@@ -23,23 +37,25 @@ public class Ejercicio2 : MonoBehaviour
 
     private void Ejercicios()
     {
-        switch (Ejercicio)
+        switch (ejercicio)
         {
-            case 1:
+            case Ejercicio.Uno:
                 Vec3 vectorSuma = vectorA + vectorB;
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, vectorSuma, Color.green);
+                Debug.Log(vectorSuma);
                 break;
-            case 2:
+            case Ejercicio.Dos:
                 Vec3 vectorResta = vectorB - vectorA;
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, vectorResta, Color.green);
+                Debug.Log(vectorResta);
                 break;
-            case 3:
+            case Ejercicio.Tres:
                 Vec3 vectorMultiplicacion = new Vec3(
                       vectorA.x * vectorB.x,
                       vectorA.y * vectorB.y,
@@ -48,22 +64,23 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, vectorMultiplicacion, Color.green);
+                Debug.Log(vectorMultiplicacion);
                 break;
-            case 4:
-                Vec3 vectorCross = Vec3.Cross(vectorA, vectorB);
+            case Ejercicio.Cuatro:
+                Vec3 vectorCross = Vec3.Cross(vectorB, vectorA);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, vectorCross, Color.green);
+                Debug.Log(vectorCross);
 
                 break;
-            case 5:
+            case Ejercicio.Cinco:
 
                 tiempoInicio += 0.99f * Time.deltaTime;
                 Vec3 vectorCinco;
-                float interpolacion = 0;
 
-                interpolacion = Mathf.PingPong(tiempoInicio, 1.0f);
+                float interpolacion = Mathf.PingPong(tiempoInicio, 1.0f);
 
                 if (interpolacion >= 0.99)
                 {
@@ -77,24 +94,25 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorCinco, Color.green);
 
                 break;
-            case 6:
-                Vec3 maxVector = new Vec3();
-                maxVector = Vec3.Max(vectorA, vectorB);
+            case Ejercicio.Seis:
+                Vec3 maxVector = Vec3.Max(vectorA, vectorB);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, maxVector, Color.green);
+                Debug.Log(maxVector);
 
                 break;
-            case 7:
+            case Ejercicio.Siete:
                 Vec3 vectorProyect = Vec3.Project(vectorA, vectorB);
 
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, vectorProyect, Color.green);
+                Debug.Log(vectorProyect);
 
                 break;
-            case 8:
+            case Ejercicio.Ocho:
                 Vec3 sumaNormalizada = (vectorA + vectorB).normalized;
                 float distance = Vec3.Distance(vectorA, vectorB);
 
@@ -106,7 +124,7 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.Log(vectorC);
 
                 break;
-            case 9:
+            case Ejercicio.Nueve:
                 
                 Vec3 vectorReflect = Vec3.Reflect(vectorA, vectorB.normalized);
 
@@ -116,7 +134,7 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.Log(vectorReflect);      
 
                 break;
-            case 10:
+            case Ejercicio.Diez:
                 Vec3 newPosition = Vec3.LerpUnclamped(vectorA, vectorB, interpolationValue);
                 interpolationValue -= Time.deltaTime * 1;
 
@@ -128,7 +146,6 @@ public class Ejercicio2 : MonoBehaviour
                 Debug.DrawLine(Vector3.zero, vectorA, Color.red);
                 Debug.DrawLine(Vector3.zero, vectorB, Color.blue);
                 Debug.DrawLine(Vector3.zero, newPosition, Color.green);
-                Debug.Log(newPosition);
                 break;
             default:
                 break;
