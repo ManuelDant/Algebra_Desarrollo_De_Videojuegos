@@ -350,6 +350,73 @@ namespace CustomMath
             return LookRotation(forward, Vector3.up);
         }
 
+        public static MiQuaternion RotateTowards(MiQuaternion from, MiQuaternion to, float maxDegreesDelta)
+        {
+            float num = Angle(from, to);
+            if (num == 0f)
+            {
+                return to;
+            }
+
+            return SlerpUnclamped(from, to, Mathf.Min(1f, maxDegreesDelta / num));
+        }
+
+        public static MiQuaternion Slerp(MiQuaternion a, MiQuaternion b, float t)
+        {
+            float dot = Dot(a, b);
+
+            if (dot < 0f)
+            {
+                b = -b;
+                dot = -dot;
+            }
+
+            const float kThreshold = 0.9995f;
+            if (dot > kThreshold)
+            {
+                return Lerp(a, b, t);
+            }
+
+            float angle = Mathf.Acos(dot);
+            float sinAngle = Mathf.Sin(angle);
+            float invSinAngle = 1f / sinAngle;
+
+            float ratioA = Mathf.Sin((1f - t) * angle) * invSinAngle;
+            float ratioB = Mathf.Sin(t * angle) * invSinAngle;
+
+            return new MiQuaternion(
+                ratioA * a.x + ratioB * b.x,
+                ratioA * a.y + ratioB * b.y,
+                ratioA * a.z + ratioB * b.z,
+                ratioA * a.w + ratioB * b.w
+            );
+        }
+
+        public static MiQuaternion SlerpUnclamped(MiQuaternion a, MiQuaternion b, float t)
+        {
+            float dot = Dot(a, b);
+
+            if (dot < 0f)
+            {
+                b = -b;
+                dot = -dot;
+            }
+
+            float angle = Mathf.Acos(dot);
+            float sinAngle = Mathf.Sin(angle);
+            float invSinAngle = 1f / sinAngle;
+
+            float ratioA = Mathf.Sin((1f - t) * angle) * invSinAngle;
+            float ratioB = Mathf.Sin(t * angle) * invSinAngle;
+
+            return new MiQuaternion(
+                ratioA * a.x + ratioB * b.x,
+                ratioA * a.y + ratioB * b.y,
+                ratioA * a.z + ratioB * b.z,
+                ratioA * a.w + ratioB * b.w
+            );
+        }
+
 
         public void Set(float newX, float newY, float newZ, float newW)
         {
@@ -357,6 +424,27 @@ namespace CustomMath
             y = newY;
             z = newZ;
             w = newW;
+        }
+
+        public void SetFromToRotation(Vec3 fromDirection, Vec3 toDirection)
+        {
+            FromToRotation(fromDirection, toDirection);
+        }
+
+        public void SetLookRotation(Vec3 view)
+        {
+            Vec3 up = Vector3.up;
+            SetLookRotation(view, up);
+        }
+
+        public void SetLookRotation(Vec3 view, [DefaultValue("Vector3.up")] Vec3 up)
+        {
+            LookRotation(view, up);
+        }
+
+        public void ToAngleAxis(float angle, Vec3 axis)
+        {
+            AngleAxis(angle, axis);
         }
 
         public static MiQuaternion operator *(MiQuaternion lhs, MiQuaternion rhs)
