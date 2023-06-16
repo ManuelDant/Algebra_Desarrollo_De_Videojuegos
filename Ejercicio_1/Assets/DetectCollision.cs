@@ -118,6 +118,7 @@ public class DetectCollision : MonoBehaviour
 
     private bool IsPointInsideTriangle(Vector3 point, Vector3 p1, Vector3 p2, Vector3 p3)
     {
+        //Utiliza la formula de Moller-Trumbore para buscar si un punto3D esta dentro del triangulo
         Vector3 e1 = p2 - p1;
         Vector3 e2 = p3 - p1;
         Vector3 normal = Vector3.Cross(e1, e2);

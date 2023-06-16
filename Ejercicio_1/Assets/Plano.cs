@@ -8,7 +8,6 @@ namespace CustomMath
 {
    public struct MiPlano
    {
-       const int size = 16;
        private Vec3 _normal;
        private float _distance;
 
@@ -16,8 +15,10 @@ namespace CustomMath
 
        public MiPlano(Vec3 inNormal, Vec3 inPoint)
             {
-            //se utiliza para crear un nuevo plano en 3D a partir de una normal y un punto en el espacio.
+            //se utiliza para crear un nuevo plano en 3D a partir de una normal en un punto en el espacio.
             //calcula la normalizada de la normal y la distancia al origen utilizando el producto.
+            //se calcula la distancia utilizando el producto punto para obtener la magnitud de la proyección de "inPoint" sobre la normal.
+            //siempre se normaliza la normal para que de una magnitud de 1 para que se pueda utilizar de manera adecuada en los calculos.
                 _normal = inNormal.normalized;
                 _distance = 0f - Vec3.Dot(_normal, inPoint);
             }
@@ -43,10 +44,12 @@ namespace CustomMath
        {
            _normal = inNormal.normalized; //Se normaliza la normal para asegurar que su longitud sea de 1 para saber que la direccion sea correcto.
             _distance = 0f - Vec3.Dot(inNormal, inPoint);
-            // La distancia del plano al punto se calcula utilizando la fórmula de la distancia de un punto a un plano. El producto punto entre la normal y el punto se multiplica por -1
+            // La distancia del plano al punto se calcula utilizando la fórmula de la distancia de un punto a un plano. El producto punto entre la normal
+            // y el punto se multiplica por -1
 
             //La razón de multiplicar -1 es que la fórmula de la distancia devuelve un valor con signo, que indica de qué lado del plano se encuentra el punto.
-            //Si el signo es negativo, entonces el punto está detrás del plano; si es positivo, está delante del plano. Para asegurarse de que el signo sea correcto, se multiplica por -1.
+            //Si el signo es negativo, entonces el punto está detrás del plano; si es positivo, está delante del plano. Para asegurarse de que el signo sea correcto,
+            //se multiplica por -1.
        }
 
         public void Set3Points(Vec3 a, Vec3 b, Vec3 c)
@@ -83,7 +86,8 @@ namespace CustomMath
             float distance = Vec3.Dot(_normal, point) + _distance;
             return point - _normal * distance;
             //Para encontrar el punto más cercano, primero se calcula la distancia del punto al plano utilizando la fórmula de la ecuación del plano.
-            //Se proyecta el vector desde el punto al plano, lo cual equivale a restar el producto punto entre la normal del plano y el punto a la normal multiplicado por la distancia del plano al origen.
+            //Se proyecta el vector desde el punto al plano, lo cual equivale a restar el producto punto entre la normal del plano y el punto a la normal multiplicado
+            //por la distancia del plano al origen.
             //El punto proyectado se encuentra restando la normal del plano multiplicada por la distancia del punto point, dando asi el punto mas cercano.
 
         }

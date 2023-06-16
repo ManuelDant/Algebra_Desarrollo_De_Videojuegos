@@ -167,8 +167,9 @@ namespace CustomMath
 
             //Luego, utiliza la función de producto punto para calcular el coseno del ángulo entre los dos vectores normalizados.
             //El valor del coseno se restringe dentro del rango [-1, 1] utilizando la función Mathf.Clamp.
-            //Luego, se utiliza la función Mathf.Acos para calcular el ángulo en radianes, que se convierte a grados multiplicando por Mathf.Rad2Deg.
+            //Luego, se utiliza la función Mathf.Acos (arcoseno) para calcular el ángulo en radianes, que se convierte a grados multiplicando por Mathf.Rad2Deg.
             //Finalmente, el ángulo en grados se devuelve como un valor de punto flotante.
+            //La formula para calcular el ángulo entre dos vectores utilizada es θ = acos((A · B) / (|A| |B|)) los modulos del A y B son las magnitudes para normalizar el resultado (-1, 1)
             return angle;
         }
         public static Vec3 ClampMagnitude(Vec3 vector, float maxLength)
@@ -198,8 +199,7 @@ namespace CustomMath
             float magnitude = (float)MathF.Sqrt(x * x + y * y + z * z);
             return magnitude;
             //calcula la magnitud del vector utilizando la fórmula de la distancia euclidiana en tres dimensiones.
-            //la formula euclidiana se utiliza para calcular la distancia entre dos puntos que se puede realizar en un espacio tridimensional
-            //su formula es la siguiente: d = sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2). d = distancia | x1 y x2= coordenadas del primer y segundo punto.
+            
         }
         public static Vec3 Cross(Vec3 a, Vec3 b)
         {
@@ -211,7 +211,8 @@ namespace CustomMath
         {
             float distance = Mathf.Sqrt(Mathf.Pow(a.x - b.x, 2) + Mathf.Pow(a.y - b.y, 2) + Mathf.Pow(a.z - b.z, 2));
             return distance;
-            //Se utiliza la misma formula euclidania para calcular la distancia entre los vectores. (Similar al teorema de pitagoras pero para tres dimensiones).
+            //la formula euclidiana se utiliza para calcular la distancia entre dos puntos que se puede realizar en un espacio tridimensional
+            //su formula es la siguiente: d = sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2). d = distancia | x1 y x2= coordenadas del primer y segundo punto.
 
         }
 
@@ -226,6 +227,7 @@ namespace CustomMath
             Vec3 interpolated = a + (b - a) * t;
             return interpolated;
             //toma dos vectores a y b y una proporción t, y devuelve el vector interpolado que se encuentra en algún lugar entre a y b.
+            //la interpolacion es estimar valores desconocidos entre dos o más puntos de datos conocidos.
         }
 
         public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t)
@@ -282,6 +284,7 @@ namespace CustomMath
 
             Luego, calculamos el factor de proyección dividiendo el producto punto por la magnitud al cuadrado del vector de normalización. 
             Finalmente, multiplicamos el vector de normalización por el factor de proyección y devolvemos el resultado como el vector proyectado.
+            Se esta utilizando la siguiente fórmula matemática: proyección de A sobre B = (A · B / |B|²) · B
              */
         }
 
@@ -295,6 +298,12 @@ namespace CustomMath
 
             El resultado es un vector que apunta en la dirección opuesta a la dirección de entrada inDirection, reflejado por la superficie definida por el
             vector normalizado inNormal.
+
+            Se utiliza la formula de de reflexion de la fisica que un angulo de indicendia es igual al angulo de reflexion
+            un angulo indicendia es un angulo formado por un rayo de luz entrante y la normal que es donde se produce la reflexion.
+            R = I - 2(N . I)N
+            R es el vector reflejado, I es la direccion del rayo, N es la normal
+            la resta de -2 es necesaria para reflejar el vector de entrada inDirection a lo largo del vector normal inNormal. 
             */
         }
 
