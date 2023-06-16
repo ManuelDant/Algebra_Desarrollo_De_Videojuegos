@@ -355,6 +355,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/DetectCollision.cs"
 "Assets/Ejercicio2.cs"
+"Assets/MiMatrix.cs"
 "Assets/MiQuaternion.cs"
 "Assets/Plano.cs"
 "Assets/Scripts/MathDebbuger/Debuggers/Vector3Debugger.cs"
