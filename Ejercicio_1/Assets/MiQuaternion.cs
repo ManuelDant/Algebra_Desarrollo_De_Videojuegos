@@ -166,6 +166,190 @@ namespace CustomMath
             return new MiQuaternion(q.x / num, q.y / num, q.z / num, q.w / num);
         }
 
+        public static MiQuaternion Euler(float x, float y, float z)
+        {
+            // Convertir los ángulos de grados a radianes
+            float radianX = x * Mathf.Deg2Rad;
+            float radianY = y * Mathf.Deg2Rad;
+            float radianZ = z * Mathf.Deg2Rad;
+
+            // Calcular los senos y cosenos de los ángulos
+            float sinX = Mathf.Sin(radianX);
+            float cosX = Mathf.Cos(radianX);
+            float sinY = Mathf.Sin(radianY);
+            float cosY = Mathf.Cos(radianY);
+            float sinZ = Mathf.Sin(radianZ);
+            float cosZ = Mathf.Cos(radianZ);
+
+            // Calcular los componentes del cuaternion
+            float xComponent = sinX * cosY * cosZ + cosX * sinY * sinZ;
+            float yComponent = cosX * sinY * cosZ - sinX * cosY * sinZ;
+            float zComponent = cosX * cosY * sinZ - sinX * sinY * cosZ;
+            float wComponent = cosX * cosY * cosZ + sinX * sinY * sinZ;
+
+            // Crear y devolver el cuaternion resultante
+            return new MiQuaternion(xComponent, yComponent, zComponent, wComponent);
+        }
+
+        public static MiQuaternion Euler(Vec3 euler)
+        {
+            return Euler(euler.x, euler.y, euler.z);
+        }
+
+        public static MiQuaternion FromToRotation(Vec3 fromDirection, Vec3 toDirection)
+        {
+            fromDirection.Normalize();
+            toDirection.Normalize();
+
+            // Calcular el producto punto entre las direcciones
+            float dot = Vec3.Dot(fromDirection, toDirection);
+
+            // Calcular el ángulo entre las direcciones
+            float angle = Mathf.Acos(Mathf.Clamp(dot, -1f, 1f)) * Mathf.Rad2Deg;
+
+            // Calcular el eje de rotación perpendicular a las direcciones
+            Vec3 cross = Vec3.Cross(fromDirection, toDirection);
+            cross.Normalize();
+
+            return AxisAngle(cross, angle);
+        }
+
+        public static MiQuaternion Inverse(MiQuaternion rotation)
+        {
+            float x = -rotation.x;
+            float y = -rotation.y;
+            float z = -rotation.z;
+            float w = rotation.w;
+
+            return new MiQuaternion(x, y, z, w);
+        }
+
+        public static MiQuaternion Lerp(MiQuaternion a, MiQuaternion b, float t)
+        {
+            t = Mathf.Clamp01(t);
+
+            return LerpUnclamped(a, b, t);
+        }
+
+        public static MiQuaternion LerpUnclamped(MiQuaternion a, MiQuaternion b, float t)
+        {
+            float cosHalfTheta = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+
+            if (cosHalfTheta < 0f)
+            {
+                b = -b;
+                cosHalfTheta = -cosHalfTheta;
+            }
+
+            if (Mathf.Abs(cosHalfTheta) >= 1f)
+            {
+                return a;
+            }
+
+            float sinHalfTheta = Mathf.Sqrt(1f - cosHalfTheta * cosHalfTheta);
+
+            if (Mathf.Abs(sinHalfTheta) < 0.001f)
+            {
+                return new MiQuaternion(
+                    a.x * (1f - t) + b.x * t,
+                    a.y * (1f - t) + b.y * t,
+                    a.z * (1f - t) + b.z * t,
+                    a.w * (1f - t) + b.w * t
+                );
+            }
+            else
+            {
+                float halfTheta = Mathf.Acos(cosHalfTheta);
+                float ratioA = Mathf.Sin((1f - t) * halfTheta) / sinHalfTheta;
+                float ratioB = Mathf.Sin(t * halfTheta) / sinHalfTheta;
+
+                return new MiQuaternion(
+                    a.x * ratioA + b.x * ratioB,
+                    a.y * ratioA + b.y * ratioB,
+                    a.z * ratioA + b.z * ratioB,
+                    a.w * ratioA + b.w * ratioB
+                );
+            }
+        }
+
+        public static MiQuaternion LookRotation(Vec3 forward, [DefaultValue("Vector3.up")] Vec3 upwards)
+        {
+            // Normalizar las direcciones
+            forward.Normalize();
+            upwards.Normalize();
+
+            // Calcular el eje de rotación utilizando el producto cruz entre el forward y upwards
+            Vec3 right = Vec3.Cross(upwards, forward);
+            right.Normalize();
+
+            // Calcular el nuevo upwards utilizando el producto cruz entre el forward y right
+            upwards = Vec3.Cross(forward, right);
+            upwards.Normalize();
+
+            // Calcular los componentes del cuaternion
+            float m00 = right.x;
+            float m01 = right.y;
+            float m02 = right.z;
+            float m10 = upwards.x;
+            float m11 = upwards.y;
+            float m12 = upwards.z;
+            float m20 = forward.x;
+            float m21 = forward.y;
+            float m22 = forward.z;
+
+            float trace = m00 + m11 + m22;
+            float w, x, y, z;
+
+            if (trace > 0f)
+            {
+                float s = Mathf.Sqrt(trace + 1f) * 2f;
+                float invS = 1f / s;
+
+                w = 0.25f * s;
+                x = (m21 - m12) * invS;
+                y = (m02 - m20) * invS;
+                z = (m10 - m01) * invS;
+            }
+            else if (m00 > m11 && m00 > m22)
+            {
+                float s = Mathf.Sqrt(1f + m00 - m11 - m22) * 2f;
+                float invS = 1f / s;
+
+                w = (m21 - m12) * invS;
+                x = 0.25f * s;
+                y = (m01 + m10) * invS;
+                z = (m02 + m20) * invS;
+            }
+            else if (m11 > m22)
+            {
+                float s = Mathf.Sqrt(1f + m11 - m00 - m22) * 2f;
+                float invS = 1f / s;
+
+                w = (m02 - m20) * invS;
+                x = (m01 + m10) * invS;
+                y = 0.25f * s;
+                z = (m12 + m21) * invS;
+            }
+            else
+            {
+                float s = Mathf.Sqrt(1f + m22 - m00 - m11) * 2f;
+                float invS = 1f / s;
+
+                w = (m10 - m01) * invS;
+                x = (m02 + m20) * invS;
+                y = (m12 + m21) * invS;
+                z = 0.25f * s;
+            }
+
+            // Crear y devolver el cuaternion resultante
+            return new MiQuaternion(x, y, z, w);
+        }
+
+        public static MiQuaternion LookRotation(Vec3 forward)
+        {
+            return LookRotation(forward, Vector3.up);
+        }
+
 
         public void Set(float newX, float newY, float newZ, float newW)
         {
