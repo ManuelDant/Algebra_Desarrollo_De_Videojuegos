@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace CustomMath
 {
     public struct MiMatrix4x4
     {
+        //Elementos individuales de una matriz4x4, donde cada casilla es una posicion especifica, el primer 0 corresponde a la fila en donde se posiciona y el segundo 0 a la columna en donde se posiciona.
         public float m00;
         public float m10;
         public float m20;
@@ -28,6 +25,8 @@ namespace CustomMath
 
         private static MiMatrix4x4 zeroMatrix = new MiMatrix4x4(new Vector4(0f, 0f, 0f, 0f), new Vector4(0f, 0f, 0f, 0f), new Vector4(0f, 0f, 0f, 0f), new Vector4(0f, 0f, 0f, 0f));
 
+        //Las posiciones diagonales de los 1 es debido a que no cambia un vector cuando se lo aplica una transformacion. Cada fila representa un eje cartesiano, siendo que cada fila (X, Y , Z, origen/punto de referencia).
+        //La presencia de un unico 1 en cada fila, garantiza que cuando esta matriz se multiplica por un vector tridimensional, no se introduciran cambios o transformaciones adicionales al vector.
         private static MiMatrix4x4 identityMatrix = new MiMatrix4x4(new Vector4(1f, 0f, 0f, 0f), new Vector4(0f, 1f, 0f, 0f), new Vector4(0f, 0f, 1f, 0f), new Vector4(0f, 0f, 0f, 1f));
 
         public MiQuaternion rotation => GetRotation();
@@ -41,10 +40,12 @@ namespace CustomMath
         {
             get
             {
+                //Retorna el calculo del indice correspondiente al elemento de la matriz, se lo multiplica por 4 ya que es un matriz 4x4 siendo asi un arreglo unidimensional de 16 de longitud.
                 return this[row + column * 4];
             }
             set
             {
+                //Se realiza el mismo procedimiento que el get pero sirve para asignar un valor a la casilla seleccionada.
                 this[row + column * 4] = value;
             }
         }
@@ -158,15 +159,23 @@ namespace CustomMath
             }
         }
 
+        //Devuelve un Quaternion que representa la rotacion por un matriz.
         private MiQuaternion GetRotation()
         {
-            Vec3 forward = new Vec3(m02, m12, m22).normalized;
-            Vec3 upwards = new Vec3(m01, m11, m21).normalized;
+            //Se crean dos vectores que representan la dirreccion hacia adelante y hacia arriba en el sistema de coordenadas definido por la matriz.
+            //Se los normaliza para que su longitud se mantenga en 1.
+            Vec3 forward = new Vec3(m02, m12, m22).normalized; //los elementos de la matriz representan a la tercera columna de la matriz, que representa la dirreccion de avance.
+            Vec3 upwards = new Vec3(m01, m11, m21).normalized; //los elementos de la matriz representan a la segunda columna de la matriz, que representa la dirreccion hacia arriba.
+
+            //Luego se realiza la creacion del Quaternion utilizando la funcion LookRotation para buscar la rotacion de ambos vectores.
             return MiQuaternion.LookRotation(forward, upwards);
         }
 
+        //Sirve para obtener la escala de transformacion de una matriz.
         private Vector3 GetLossyScale()
         {
+            //Crea tres vectores utilizando cada eje de la matriz, el primer vector representa el eje x, el segundo vector el eje y, el tercer vector el z.
+            //Se los normaliza para calcular la magnitud o longitud del vector que es lo que representa la escala en cada dimension.
             Vector3 scale = new Vector3(
                 new Vector4(m00, m10, m20, m30).magnitude,
                 new Vector4(m01, m11, m21, m31).magnitude,
@@ -177,14 +186,19 @@ namespace CustomMath
 
         private bool IsIdentity()
         {
+            //Crea la matriz identity
             return m00 == 1f && m10 == 0f && m20 == 0f && m30 == 0f &&
                    m01 == 0f && m11 == 1f && m21 == 0f && m31 == 0f &&
                    m02 == 0f && m12 == 0f && m22 == 1f && m32 == 0f &&
                    m03 == 0f && m13 == 0f && m23 == 0f && m33 == 1f;
         }
 
+        //Devuelve el determinante de la matriz, el determinante es un valor escalar que proporciona informacion sobre las propiedas lineales y geometricas de la matriz.
         private float GetDeterminant()
         {
+            //Se multiplican y restan los elementos de la matriz segun la formula del determinante.
+            //Se agrupan los terminos de acuerdo con su posicion en la matriz y se realizan las operaciones correspondientes.
+            //Los terminos se multiplican por los coeficientes correspondientes y se suman o restan segun la formula del determinante.
             float det =
                 m00 * (m11 * (m22 * m33 - m23 * m32) - m21 * (m12 * m33 - m13 * m32) + m31 * (m12 * m23 - m13 * m22)) -
                 m10 * (m01 * (m22 * m33 - m23 * m32) - m21 * (m02 * m33 - m03 * m32) + m31 * (m02 * m23 - m03 * m22)) +
@@ -199,34 +213,43 @@ namespace CustomMath
             return m.determinant;
         }
 
+        //Se utiliza para construir una matriz 4x4 a partir de una posicion, una rotacion y una escala. La matriz resultante representa una transformación compuesta que realiza una traslación, una rotacion y una escala en un objeto.
         public static MiMatrix4x4 TRS(Vec3 pos, MiQuaternion q, Vec3 s)
         {
             MiMatrix4x4 matrix = identity;
 
-            // Translation
+            // Se les asignas los ejes utilizando la cuarta columna de la matriz, ya que estos componentes son los encargados de desplazar los puntos o vectores x, y, z.
             matrix.m03 = pos.x;
             matrix.m13 = pos.y;
             matrix.m23 = pos.z;
 
-            // Rotation
+            // Se les asigna los datos del Quaternion para realizar la rotacion.
             float x = q.x;
             float y = q.y;
             float z = q.z;
             float w = q.w;
 
+            //Se crean version de los ejes duplicados para evitar realizar muchos calculos multiplicando por 2.
             float x2 = x + x;
             float y2 = y + y;
             float z2 = z + z;
+
+            //Estas variables se calculan mediante la multiplicacion de los ejes mismos y con los valores duplicados, estos en especifico se usan para construir los elementos de la matriz de rotacion.
             float xx = x * x2;
             float xy = x * y2;
             float xz = x * z2;
             float yy = y * y2;
             float yz = y * z2;
             float zz = z * z2;
+
+            //Estas variables se calculan mediante la multiplicacion de la w del Quaternion por los valores duplicados de los ejes, tambien se utiliza para la matriz de rotacion.
             float wx = w * x2;
             float wy = w * y2;
             float wz = w * z2;
 
+            //La rotacion utiliza los componentes de las tres primeras filas y las tres primeras columnas, estos mismos son los que estan relacionados con las transformaciones de rotacion en los ejes x, y, z.
+            //Se realiza una resta de 1.0f a la suma de ciertos productos de las componentes del quaternion. Esto se hace para asegurar que los elementos de la matriz de rotacion cumplan con la propiedad de ortogonalidad, es decir,
+            //que las filas (o columnas) de la matriz sean vectores unitarios y sean mutuamente perpendiculares
             matrix.m00 = 1.0f - (yy + zz);
             matrix.m01 = xy + wz;
             matrix.m02 = xz - wy;
@@ -239,7 +262,7 @@ namespace CustomMath
             matrix.m21 = yz - wx;
             matrix.m22 = 1.0f - (xx + yy);
 
-            // Scale
+            // Se aplica la escala usando los componentes diagonales de la matriz, hace que expandan o contraigan los vectores en funcion a la informacion proporcionada.
             matrix.m00 *= s.x;
             matrix.m11 *= s.y;
             matrix.m22 *= s.z;
@@ -254,22 +277,31 @@ namespace CustomMath
 
         public bool ValidTRS()
         {
+            //Si el determinante es igual a cero, significa que la matriz no es invertible, lo que indica una transformacion no valida.
             return GetDeterminant() != 0f;
         }
 
+        //Calcula el inverso de una matriz dada.
+        //La matriz inversa de una matriz se utiliza para deshacer una transformacion aplicada por esa matriz. La matriz inversa, cuando se multiplica por la matriz original, produce la matriz de identidad.
         public static MiMatrix4x4 Inverse(MiMatrix4x4 m)
         {
-            // Calculate the inverse of the matrix
+            //Buscamos el determinante para comprobar que la matriz a calcular si se pueda invertir y tambien para obtener los valores de los cofactores necesarios para calcular el inverso de la matriz.
             float det = m.GetDeterminant();
 
-            if (det == 0f)
+            if (!m.ValidTRS())
             {
+                //Si no es valido se lanzara un error debido a que no se puede invertir.
                 throw new InvalidOperationException("Matrix is not invertible.");
             }
 
             MiMatrix4x4 inverseMatrix = new MiMatrix4x4();
 
-            // Calculate the cofactors of the matrix
+            //Se calculan los cofactores de la matriz original para cada elemento de la matriz inversa. Los cofactores se calculan utilizando una combinacion de multiplicaciones, sumas y restas de elementos de la matriz original.
+            //Los cofactores son valores que se obtienen al combinar el determinante de submatrices de una matriz
+
+            //Para calcular los cofactores de una matriz, se toma el determinante de cada submatriz, que es la matriz resultante despues de eliminar una fila y una columna especificas de la matriz original.
+            //Los cofactores se obtienen aplicando una alternancia de signo positivo y negativo a los determinantes de las submatrices.
+
             float cof00 = m.m11 * (m.m22 * m.m33 - m.m23 * m.m32) - m.m21 * (m.m12 * m.m33 - m.m13 * m.m32) + m.m31 * (m.m12 * m.m23 - m.m13 * m.m22);
             float cof01 = -(m.m10 * (m.m22 * m.m33 - m.m23 * m.m32) - m.m20 * (m.m12 * m.m33 - m.m13 * m.m32) + m.m30 * (m.m12 * m.m23 - m.m13 * m.m22));
             float cof02 = m.m10 * (m.m21 * m.m33 - m.m23 * m.m31) - m.m20 * (m.m11 * m.m33 - m.m13 * m.m31) + m.m30 * (m.m11 * m.m23 - m.m13 * m.m21);
@@ -290,7 +322,7 @@ namespace CustomMath
             float cof32 = -(m.m00 * (m.m11 * m.m23 - m.m13 * m.m21) - m.m10 * (m.m01 * m.m23 - m.m03 * m.m21) + m.m20 * (m.m01 * m.m13 - m.m03 * m.m11));
             float cof33 = m.m00 * (m.m11 * m.m22 - m.m12 * m.m21) - m.m10 * (m.m01 * m.m22 - m.m02 * m.m21) + m.m20 * (m.m01 * m.m12 - m.m02 * m.m11);
 
-            // Calculate the adjugate of the matrix (transpose of the cofactor matrix)
+            //Luego se divide cada cofactor por el determinante para obtener los elementos de la matriz inversa.
             inverseMatrix.m00 = cof00 / det;
             inverseMatrix.m01 = cof10 / det;
             inverseMatrix.m02 = cof20 / det;
@@ -311,11 +343,14 @@ namespace CustomMath
             return inverseMatrix;
         }
 
+        //Toma una matriz y la devuelve transpuesta de la matriz original.
+        //Transposar se refiere a invertir las columnas y filas de una matriz.
         public static MiMatrix4x4 Transpose(MiMatrix4x4 m)
         {
-            // Transpose the matrix
+            // Se crea la matriz para transponer la matriz dada.
             MiMatrix4x4 transposedMatrix = new MiMatrix4x4();
 
+            //Luego, los elementos de la matriz creada para transposar se asignan de acuerdo a los elementos correspondientes de la matriz original, pero con las filas y columnas intercambiadas. 
             transposedMatrix.m00 = m.m00;
             transposedMatrix.m01 = m.m10;
             transposedMatrix.m02 = m.m20;
@@ -338,6 +373,8 @@ namespace CustomMath
 
         public static MiMatrix4x4 Scale(Vec3 vector)
         {
+            //Realiza la escala de la matriz utilizando un vector, se les asigna a las casillas diagonales de la matriz ya que estas son encargadas de que se expandan o contraigan los vectores de la matriz, cada fila representa el eje cartesiano.
+            //El resto de las casillas se establecen en 0, ya que la matriz de escala no tiene efecto en la translacion ni en la ultima fila.
             MiMatrix4x4 result = default(MiMatrix4x4);
             result.m00 = vector.x;
             result.m01 = 0f;
@@ -356,10 +393,20 @@ namespace CustomMath
             result.m32 = 0f;
             result.m33 = 1f;
             return result;
+
+            /*
+            | sx  0   0   0 |
+            | 0   sy  0   0 |
+            | 0   0   sz  0 |
+            | 0   0   0   1 |
+            */
         }
 
         public static MiMatrix4x4 Translate(Vec3 vector)
         {
+            //Las casillas usadas para el escala se igualan a 1 debido a que no se realizara ningun cambio en la escala.
+            //Se utilizan las ultimas filas de la cuarta columna para realizar la translacion de la matriz utilizando el vector.
+            //El resto de las casillas se establecen en 0, ya que la matriz de traslacion no tiene efecto en la escala ni en la ultima fila.
             MiMatrix4x4 result = default(MiMatrix4x4);
             result.m00 = 1f;
             result.m01 = 0f;
@@ -378,22 +425,40 @@ namespace CustomMath
             result.m32 = 0f;
             result.m33 = 1f;
             return result;
+
+            /*
+            | 1   0   0   tx |
+            | 0   1   0   ty |
+            | 0   0   1   tz |
+            | 0   0   0   1  |
+             */
         }
 
         public static MiMatrix4x4 Rotate(MiQuaternion q)
         {
+            //Se utiliza el mismo metodo que en la funcion TRS para rotar una matriz a partir de un quaternion.
+
+            //Se crean version de los ejes duplicados para evitar realizar muchos calculos multiplicando por 2.
             float num = q.x * 2f;
             float num2 = q.y * 2f;
             float num3 = q.z * 2f;
+
+            //Estas variables se calculan mediante la multiplicacion de los ejes mismos y con los valores duplicados, estos en especifico se usan para construir los elementos de la matriz de rotacion.
             float num4 = q.x * num;
             float num5 = q.y * num2;
             float num6 = q.z * num3;
             float num7 = q.x * num2;
             float num8 = q.x * num3;
             float num9 = q.y * num3;
+
+            //Estas variables se calculan mediante la multiplicacion de la w del Quaternion por los valores duplicados de los ejes, tambien se utiliza para la matriz de rotacion.
             float num10 = q.w * num;
             float num11 = q.w * num2;
             float num12 = q.w * num3;
+
+            //Aqui se realizan los calculos correspondientes para obtener la rotacion de la matriz, los componentes 00 10 20 representan los efectos de rotacion de los 3 ejes x y z respectivamente.
+            //las casillas en 0 son debido a que no hay ninguna traslacion en la matriz de rotacion.
+            //en el ultimo componente (33) se mantiene el 1 para mantener la propiedad de identidad de la matriz.
             MiMatrix4x4 result = default(MiMatrix4x4);
             result.m00 = 1f - (num5 + num6);
             result.m10 = num7 + num12;
@@ -450,15 +515,17 @@ namespace CustomMath
 
         public Vec3 GetPosition()
         {
-            return new Vector3(m03, m13, m23);
+            //Cada componente representa el eje de traslacion tanto de X como de Y y de Z. Todas se encuentran en la tercera columna
+            return new Vec3(m03, m13, m23);
         }
 
+        //Realiza una multiplicacion de una coordenada de punto con la matriz de transformacion. Devuelve un nuevo vector3 que representa la coordenada del punto transformado.
         public Vec3 MultiplyPoint(Vec3 point)
         {
-            Vector3 result = default(Vector3);
-            result.x = m00 * point.x + m01 * point.y + m02 * point.z + m03;
-            result.y = m10 * point.x + m11 * point.y + m12 * point.z + m13;
-            result.z = m20 * point.x + m21 * point.y + m22 * point.z + m23;
+            //Se realiza una multiplicacion por punto para realizar los calculos posteriores.
+            Vec3 result = MultiplyPoint3x4(point);
+
+            //Despues de realizar estos calculos, se realiza una normalizacion dividiendo cada componente del resultado por el componente homogeneo num. Esto asegura que el vector resultante este normalizado y tenga una longitud de 1.
             float num = m30 * point.x + m31 * point.y + m32 * point.z + m33;
             num = 1f / num;
             result.x *= num;
@@ -469,7 +536,11 @@ namespace CustomMath
 
         public Vec3 MultiplyPoint3x4(Vec3 point)
         {
-            Vector3 result = default(Vector3);
+            //La matriz de transformacion tiene 3 filas y 4 columnas, lo que implica que no realiza una transformacion completa en el espacio tridimensional,
+            //sino que se aplica una transformacion lineal utilizando las primeras 3 columnas de la matriz.
+
+            //Se realiza una multiplicacion lineal por cada eje del punto en cada componente de las filas de la matriz, la primera columna representa la x, la segunda columna representa la y, la tercera representa la z.
+            Vec3 result = default(Vec3);
             result.x = m00 * point.x + m01 * point.y + m02 * point.z + m03;
             result.y = m10 * point.x + m11 * point.y + m12 * point.z + m13;
             result.z = m20 * point.x + m21 * point.y + m22 * point.z + m23;
@@ -478,7 +549,8 @@ namespace CustomMath
 
         public Vec3 MultiplyVector(Vec3 vector)
         {
-            Vector3 result = default(Vector3);
+            //Multiplica la matriz sin utilizar la cuarta fila utilizando un vector3. Realiza el mismo procedimiento que MultiplyVector pero sin sumas los componentes de la cuarta fila de la cuarta columna.
+            Vec3 result = default(Vec3);
             result.x = m00 * vector.x + m01 * vector.y + m02 * vector.z;
             result.y = m10 * vector.x + m11 * vector.y + m12 * vector.z;
             result.z = m20 * vector.x + m21 * vector.y + m22 * vector.z;
